@@ -115,9 +115,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "FontAwesome:size=14" };
+static const char *fonts[]               = { "FontAwesome:size=12" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "FontAwesome:size=14";
+static const char dmenufont[]            = "FontAwesome:size=12";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -800,7 +800,8 @@ static const char *dmenucmd[] = {
 static const char *termcmd[]  = { "st", "-e", "fish"};
 static const char *wallpapercmd[]  = { "/bin/sh", "-c", "feh --bg-fill --randomize /media/edrive/wallpapers/*"};
 static const char *surfcmd[]  = { "/bin/sh", "-c", "rm -rf ~/.surf/cache;surf lite.duckduckgo.com"};
-static const char *bravecmd[]  = { "/bin/sh", "-c", "brave-dev --incognito"};
+static const char *vivaldicmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable"};
+static const char *vivaldicmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable --incognito"};
 static const char *printcmd1[]  = { "/bin/sh", "-c", "scrot ~/screenshots/full_%Y-%m-%d-%H%M%S.png"};
 static const char *printcmd2[]  = { "/bin/sh", "-c", "scrot -s ~/screenshots/box_%Y-%m-%d-%H%M%S.png"};
 
@@ -836,7 +837,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_s,          spawn,                  {.v = surfcmd } },
-	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = bravecmd } },
+	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = vivaldicmd1 } },
+	{ MODKEY|ShiftMask,             XK_v,          spawn,                  {.v = vivaldicmd2 } },
 	{ MODKEY,                       XK_Right,      spawn,                  {.v = wallpapercmd } },
   { ShiftMask,                    XK_Print,      spawn,                  {.v = printcmd1 } },
   { 0,                            XK_Print,      spawn,                  {.v = printcmd2 } },
