@@ -1160,13 +1160,13 @@
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-vanitygaps-6.2.diff
  * https://github.com/bakkeby/patches/blob/master/dwm/dwm-cfacts-vanitygaps-6.2.diff
  */
-#define VANITYGAPS_PATCH 0
+#define VANITYGAPS_PATCH 1
 
 /* This patch adds outer gaps for the monocle layout.
  * Most gaps patches tries to avoid gaps on the monocle layout, as it is often used as a
  * fullscreen mode, hence this is enabled separately from the main vanitygaps patch.
  */
-#define VANITYGAPS_MONOCLE_PATCH 0
+#define VANITYGAPS_MONOCLE_PATCH 1
 
 /* Follow a window to the tag it is being moved to.
  * https://dwm.suckless.org/patches/viewontag/
@@ -1261,23 +1261,23 @@
 /* Fibonacci spiral layout.
  * https://dwm.suckless.org/patches/fibonacci/
  */
-#define FIBONACCI_SPIRAL_LAYOUT 0
+#define FIBONACCI_SPIRAL_LAYOUT 1
 
 /* Flextile deluxe layout.
  * A revamped, more flexible, and over-the-top version of the original flextile layout.
  * https://dwm.suckless.org/patches/flextile/ (original)
  */
-#define FLEXTILE_DELUXE_LAYOUT 0
+#define FLEXTILE_DELUXE_LAYOUT 1
 
 /* Gappless grid layout.
  * https://dwm.suckless.org/patches/gaplessgrid/
  */
-#define GAPPLESSGRID_LAYOUT 0
+#define GAPPLESSGRID_LAYOUT 1
 
 /* Gridmode (grid) layout.
  * https://dwm.suckless.org/patches/gridmode/
  */
-#define GRIDMODE_LAYOUT 0
+#define GRIDMODE_LAYOUT 1
 
 /* Horizontal grid (horizgrid) layout.
  * https://dwm.suckless.org/patches/horizgrid/
