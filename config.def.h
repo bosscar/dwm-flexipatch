@@ -800,8 +800,8 @@ static const char *dmenucmd[] = {
 static const char *termcmd[]  = { "st", "-e", "fish"};
 static const char *wallpapercmd[]  = { "/bin/sh", "-c", "feh --bg-fill --randomize /media/edrive/wallpapers/*"};
 static const char *surfcmd[]  = { "/bin/sh", "-c", "rm -rf ~/.surf/cache;surf lite.duckduckgo.com"};
-static const char *bravecmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly"};
-static const char *bravecmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly --incognito"};
+static const char *bravecmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable"};
+static const char *bravecmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable --incognito"};
 static const char *printcmd1[]  = { "/bin/sh", "-c", "scrot ~/screenshots/full_%Y-%m-%d-%H%M%S.png"};
 static const char *printcmd2[]  = { "/bin/sh", "-c", "scrot -s ~/screenshots/box_%Y-%m-%d-%H%M%S.png"};
 
