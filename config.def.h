@@ -267,6 +267,7 @@ static const int color_ptrs[][ColCount] = {
 };
 #endif // BAR_VTCOLORS_PATCH
 
+//#include "/home/bosscar/.cache/wal/colors-wal-dwm.h"
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
 	[SchemeNorm]         = { normfgcolor,      normbgcolor,      normbordercolor,      normfloatcolor },
@@ -342,7 +343,7 @@ static const char *const autostart[] = {
 #endif // COOL_AUTOSTART_PATCH
 
 #if SCRATCHPADS_PATCH
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "160x34", "-e", "fish" };
 static Sp scratchpads[] = {
    /* name          cmd  */
    {"spterm",      spcmd1},
@@ -800,10 +801,11 @@ static const char *dmenucmd[] = {
 static const char *termcmd[]  = { "st", "-e", "fish"};
 static const char *wallpapercmd[]  = { "/bin/sh", "-c", "feh --bg-fill --randomize /media/edrive/wallpapers/*"};
 static const char *surfcmd[]  = { "/bin/sh", "-c", "rm -rf ~/.surf/cache;surf lite.duckduckgo.com"};
-static const char *bravecmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable"};
-static const char *bravecmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark vivaldi-stable --incognito"};
+static const char *bravecmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly"};
+static const char *bravecmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly --incognito"};
 static const char *printcmd1[]  = { "/bin/sh", "-c", "scrot ~/screenshots/full_%Y-%m-%d-%H%M%S.png"};
 static const char *printcmd2[]  = { "/bin/sh", "-c", "scrot -s ~/screenshots/box_%Y-%m-%d-%H%M%S.png"};
+static const char *lockcmd[] = {"/bin/sh", "-c", "slock"};
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -839,6 +841,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,          spawn,                  {.v = surfcmd } },
 	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = bravecmd1 } },
 	{ MODKEY|ShiftMask,             XK_v,          spawn,                  {.v = bravecmd2 } },
+	{ MODKEY|ShiftMask,             XK_l,          spawn,                  {.v = lockcmd } },
 	{ MODKEY,                       XK_Right,      spawn,                  {.v = wallpapercmd } },
   { ShiftMask,                    XK_Print,      spawn,                  {.v = printcmd1 } },
   { 0,                            XK_Print,      spawn,                  {.v = printcmd2 } },
