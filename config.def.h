@@ -117,7 +117,7 @@ static const char font[]                 = "monospace 10";
 #else
 static const char *fonts[]               = { "FontAwesome:size=12" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "FontAwesome:size=12";
+static const char dmenufont[]            = "Fira Code:style=Bold:size=11";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -129,19 +129,19 @@ static char normbordercolor[]            = "#444444";
 static char normfloatcolor[]             = "#db8fd9";
 
 static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#005577";
-static char selfloatcolor[]              = "#005577";
+static char selbgcolor[]                 = "#b96600";
+static char selbordercolor[]             = "#b96600";
+static char selfloatcolor[]              = "#b96600";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
 static char titlenormbgcolor[]           = "#222222";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#eeeeee";
-static char titleselbgcolor[]            = "#005577";
-static char titleselbordercolor[]        = "#005577";
-static char titleselfloatcolor[]         = "#005577";
+static char titleselfgcolor[]            = "#000000";
+static char titleselbgcolor[]            = "#b96600";
+static char titleselbordercolor[]        = "#b96600";
+static char titleselfloatcolor[]         = "#b96600";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
 static char tagsnormbgcolor[]            = "#222222";
@@ -149,9 +149,9 @@ static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
 static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = "#005577";
-static char tagsselbordercolor[]         = "#005577";
-static char tagsselfloatcolor[]          = "#005577";
+static char tagsselbgcolor[]             = "#b96600";
+static char tagsselbordercolor[]         = "#b96600";
+static char tagsselfloatcolor[]          = "#b96600";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#227799";
@@ -163,6 +163,10 @@ static char urgbgcolor[]                 = "#222222";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
+static char dmenufgcolor[]               = "#b97711";
+static char dmenubgcolor[]               = "#000000";
+static char dmenuselfgcolor[]            = "#ffffff";
+static char dmenuselbgcolor[]            = "#aa0000";
 #if BAR_FLEXWINTITLE_PATCH
 static char normTTBbgcolor[]             = "#330000";
 static char normLTRbgcolor[]             = "#330033";
@@ -789,23 +793,25 @@ static const char *dmenucmd[] = {
 	"-m", dmenumon,
 	#endif // NODMENU_PATCH
 	"-fn", dmenufont,
-	"-nb", normbgcolor,
-	"-nf", normfgcolor,
-	"-sb", selbgcolor,
-	"-sf", selfgcolor,
+	"-nb", dmenubgcolor,
+	"-nf", dmenufgcolor,
+	"-sb", dmenuselbgcolor,
+	"-sf", dmenuselfgcolor,
 	#if BAR_DMENUMATCHTOP_PATCH
 	topbar ? NULL : "-b",
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
 static const char *termcmd[]  = { "st", "-e", "fish"};
-static const char *wallpapercmd[]  = { "/bin/sh", "-c", "feh --bg-fill --randomize /media/edrive/wallpapers/*"};
-static const char *surfcmd[]  = { "/bin/sh", "-c", "rm -rf ~/.surf/cache;surf lite.duckduckgo.com"};
+/* static const char *wallpapercmd[]  = { "/bin/sh", "-c", "feh --bg-fill --randomize /media/edrive/wallpapers/*"}; */
+static const char *wallnext[]   = { "/bin/sh", "-c", "~/.config/walle.sh"};
+static const char *wallbefore[] = { "/bin/sh", "-c", "~/.config/walld.sh"};
+static const char *surfcmd[]    = { "/bin/sh", "-c", "rm -rf ~/.surf/cache;surf lite.duckduckgo.com"};
 static const char *bravecmd1[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly"};
 static const char *bravecmd2[]  = { "/bin/sh", "-c", "GTK_THEME=Adwaita:dark brave-nightly --incognito"};
 static const char *printcmd1[]  = { "/bin/sh", "-c", "scrot ~/screenshots/full_%Y-%m-%d-%H%M%S.png"};
 static const char *printcmd2[]  = { "/bin/sh", "-c", "scrot -s ~/screenshots/box_%Y-%m-%d-%H%M%S.png"};
-static const char *lockcmd[] = {"/bin/sh", "-c", "slock"};
+static const char *lockcmd[]    = {"/bin/sh", "-c", "slock"};
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -842,7 +848,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = bravecmd1 } },
 	{ MODKEY|ShiftMask,             XK_v,          spawn,                  {.v = bravecmd2 } },
 	{ MODKEY|ShiftMask,             XK_l,          spawn,                  {.v = lockcmd } },
-	{ MODKEY,                       XK_Right,      spawn,                  {.v = wallpapercmd } },
+	{ MODKEY,                       XK_Right,      spawn,                  {.v = wallnext } },
+	{ MODKEY,                       XK_Left,       spawn,                  {.v = wallbefore } },
   { ShiftMask,                    XK_Print,      spawn,                  {.v = printcmd1 } },
   { 0,                            XK_Print,      spawn,                  {.v = printcmd2 } },
 	#if RIODRAW_PATCH
